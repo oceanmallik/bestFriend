@@ -622,47 +622,41 @@ main {
 }
 
 .chaos-card--a {
-    top: 3rem;
-    left: 2.25rem;
+    top: 2rem;
+    left: 1.5rem;
     transform: rotate(-7deg);
 }
 
-.chaos-card--b {
-    top: 7rem;
-    right: 2rem;
-    transform: rotate(8deg);
-}
-
-.chaos-card--photo {
-    top: 18rem;
-    left: 48%;
-    width: min(100%, 19rem);
-    transform: translateX(-50%) rotate(-4deg);
-}
-
 .chaos-card--accent {
-    top: 26.25rem;
-    left: 2rem;
+    top: 22rem;
+    left: 50%;
     width: min(100%, 24rem);
-    transform: rotate(4deg);
+    transform: translateX(-50%) rotate(4deg);
 }
 
 .chaos-card--mini {
-    bottom: 2rem;
-    right: 10rem;
+    top: 5rem;
+    right: 2rem;
+    bottom: auto;
+    left: auto;
     transform: rotate(-6deg);
 }
 
 .chaos-card--mini-alt {
-    bottom: 4.25rem;
-    left: 13rem;
+    bottom: 2rem;
+    left: 2rem;
+    top: auto;
+    width: min(100%, 18.5rem);
+    max-height: 18.5rem;
+    min-height: 12rem;
+    padding: 0.95rem;
     transform: rotate(7deg);
 }
 
-/* Position for the newly added chaos card to avoid overlapping other cards */
 .chaos-card--new {
-    top: 8rem;
-    right: 4rem;
+    bottom: 4rem;
+    right: 3rem;
+    top: auto;
     left: auto;
     width: min(100%, 18rem);
     transform: rotate(6deg);
