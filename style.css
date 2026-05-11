@@ -833,7 +833,7 @@ main {
 }
 
 .meme-header h2 {
-    font-size: clamp(1.6rem, 3.6vw, 2.8rem);
+    font-size: clamp(1.6rem, 3.6vw, 2.3rem);
     margin-top: 0.4rem;
 }
 
@@ -924,11 +924,10 @@ main {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(90deg, rgba(255,122,168,0.12), rgba(143,123,255,0.12), rgba(109,231,255,0.12));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(180deg, rgba(12, 16, 34, 0.18), rgba(6, 8, 16, 0.08)) padding-box,
+        linear-gradient(90deg, rgba(255,122,168,0.12), rgba(143,123,255,0.12), rgba(109,231,255,0.12)) border-box;
     opacity: 0.6;
     pointer-events: none;
     transition: opacity 280ms ease;
