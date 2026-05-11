@@ -254,8 +254,8 @@ main {
 }
 
 .hero h1 {
-    font-size: clamp(3rem, 7vw, 6.4rem);
-    max-width: 12ch;
+    font-size: clamp(3rem, 4.3vw, 6.4rem);
+    max-width: 18ch;
 }
 
 .lede,
@@ -659,6 +659,33 @@ main {
     transform: rotate(7deg);
 }
 
+/* Position for the newly added chaos card to avoid overlapping other cards */
+.chaos-card--new {
+    top: 8rem;
+    right: 4rem;
+    left: auto;
+    width: min(100%, 18rem);
+    transform: rotate(6deg);
+}
+
+/* Ensure images inside chaos photo cards don't overflow */
+.chaos-card__photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+@media (max-width: 800px) {
+    .chaos-card--new {
+        left: 50%;
+        top: 20rem;
+        width: min(100%, 14rem);
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
 .chaos-card__tape {
     position: absolute;
     top: -0.8rem;
@@ -788,12 +815,6 @@ main {
 
 .gallery__heading h2 {
     font-size: clamp(2.8rem, 5.8vw, 5.5rem);
-}
-
-.gallery__lede {
-    max-width: 42rem;
-    color: rgba(229, 234, 255, 0.76);
-    font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
 .gallery__grid {
