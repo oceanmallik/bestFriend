@@ -127,6 +127,8 @@ main {
     backdrop-filter: blur(18px);
 }
 
+/* Removed input control styles (controls were removed from the topbar). */
+
 .topbar__brand {
     display: grid;
     gap: 0.15rem;
@@ -842,28 +844,25 @@ main {
 
 .meme-collage {
     position: relative;
-    height: clamp(34rem, 56vw, 46rem);
-    min-height: 28rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.9rem, 2vw, 1.3rem);
     margin-top: 1.6rem;
     margin-bottom: 2.2rem;
     pointer-events: auto;
 }
 
 .meme-card {
-    position: absolute;
+    position: relative;
     border-radius: 18px;
     overflow: hidden;
-    width: 30rem;
-    height: 20rem;
+    width: 100%;
+    aspect-ratio: 3 / 2;
     background: linear-gradient(180deg, rgba(20,24,44,0.6), rgba(10,12,20,0.5));
     border: 1px solid rgba(255,255,255,0.06);
     box-shadow: 0 30px 80px rgba(2,6,18,0.7);
     backdrop-filter: blur(14px) saturate(1.1);
     transition: transform 300ms cubic-bezier(.2,.9,.28,1), box-shadow 300ms ease, filter 300ms ease;
-    /* use CSS variables for the base transform so animations can adjust translateY without
-       overwriting each card's unique translated position */
-    transform: translateX(var(--tx, 0)) translateY(var(--ty, 0)) rotate(var(--r, 0deg));
-    z-index: 2;
 }
 
 .meme-card img {
@@ -897,36 +896,26 @@ main {
 
 .meme-collage {
     position: relative;
-    height: clamp(34rem, 56vw, 46rem);
-    min-height: 28rem;
-    margin-top: 1.6rem;
-    margin-bottom: 2.2rem;
-    pointer-events: auto;
-    display: block;
 }
 
-/* Individual card placements — organized center cluster */
+/* Keep subtle variation while preserving clean alignment */
 .meme-card.m1,
 .meme-card.m2,
 .meme-card.m3,
 .meme-card.m4 {
-    left: 50%;
-    top: 50%;
     transform-origin: center;
     animation: bob 6.2s ease-in-out infinite;
 }
 
-/* set each card's base translate and rotation via CSS variables so the bob keyframes
-   can animate only the translateY offset without wiping out the X/rotate placement */
-.meme-card.m1 { --tx: -170%; --ty: -80%; --r: 0deg; width: 30rem; height: 20rem; z-index: 6; }
-.meme-card.m2 { --tx: 32%; --ty: -80%; --r: 0deg; width: 30rem; height: 20rem; z-index: 5; animation-duration: 7s; }
-.meme-card.m3 { --tx: -170%; --ty: 44%; --r: 0deg; width: 30rem; height: 20rem; z-index: 4; animation-duration: 5.8s; }
-.meme-card.m4 { --tx: 32%; --ty: 44%; --r: 0deg; width: 30rem; height: 20rem; z-index: 3; animation-duration: 6.6s; }
+.meme-card.m1 { animation-duration: 6.2s; }
+.meme-card.m2 { animation-duration: 7s; }
+.meme-card.m3 { animation-duration: 5.8s; }
+.meme-card.m4 { animation-duration: 6.6s; }
 
 .meme-card figcaption { display: none !important; }
 
 /* keep a small lift on hover but preserve per-card placement and disable image zoom */
-.meme-card:hover { transform: translateX(var(--tx, 0)) translateY(calc(var(--ty, 0) - 12px)) rotate(var(--r, 0deg)); box-shadow: 0 44px 120px rgba(2,6,18,0.8), 0 0 36px rgba(143,123,255,0.06); }
+.meme-card:hover { transform: translateY(-12px); box-shadow: 0 44px 120px rgba(2,6,18,0.8), 0 0 36px rgba(143,123,255,0.06); }
 .meme-card:hover img { transform: none !important; }
 
 /* glowing border using pseudo */
@@ -974,8 +963,8 @@ main {
 
 /* Responsive adjustments */
 @media (max-width: 880px) {
-    .meme-collage { height: auto; display: grid; grid-template-columns: 1fr; gap: 1rem; }
-    .meme-card { position: relative; left: auto; top: auto; transform: none !important; width: 100%; height: auto; aspect-ratio: 16/10; border-radius: 14px; }
+    .meme-collage { grid-template-columns: 1fr; gap: 1rem; }
+    .meme-card { transform: none !important; border-radius: 14px; }
     .meme-card img { height: 100%; object-fit: cover; }
     .meme-card .sticky { font-size: 0.72rem; }
 }
@@ -986,9 +975,9 @@ main {
 
 /* Keyframes */
 @keyframes bob {
-    0% { transform: translateX(var(--tx, 0)) translateY(var(--ty, 0)) rotate(var(--r, 0deg)); }
-    50% { transform: translateX(var(--tx, 0)) translateY(calc(var(--ty, 0) - 8px)) rotate(var(--r, 0deg)); }
-    100% { transform: translateX(var(--tx, 0)) translateY(var(--ty, 0)) rotate(var(--r, 0deg)); }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes bgShift {
