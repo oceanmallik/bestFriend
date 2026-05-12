@@ -164,6 +164,14 @@
                     <span class="chaos-card__stamp">12:48 AM</span>
                 </article>
 
+                <article class="chaos-card chaos-card--sticky chaos-card--reminder reveal" data-reveal>
+                    <span class="chaos-card__tape" aria-hidden="true"></span>
+                    <p class="chaos-card__label">sticky note</p>
+                    <h3>Empty corner, fixed.</h3>
+                    <p>One more little reminder that this friendship filled every gap it found.</p>
+                    <span class="chaos-card__stamp">03:17 AM</span>
+                </article>
+
                 <article class="chaos-card chaos-card--chat chaos-card--left reveal" data-reveal>
                     <p class="chaos-card__timestamp">A new message</p>
                     <div class="chaos-card__bubble chaos-card__bubble--left">
@@ -370,6 +378,47 @@
     </main>
 
     <script>
+        // Background music: autoplay + loop with fallback play button
+        (function(){
+            const bgAudio = document.createElement('audio');
+            bgAudio.id = 'bg-music';
+            bgAudio.src = 'music.mp3';
+            bgAudio.loop = true;
+            bgAudio.preload = 'auto';
+            bgAudio.style.display = 'none';
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.appendChild(bgAudio);
+                const playPromise = bgAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        // Autoplay blocked: show a lightweight play button
+                        if (!document.getElementById('playMusicBtn')) {
+                            const btn = document.createElement('button');
+                            btn.id = 'playMusicBtn';
+                            btn.textContent = 'Play Music';
+                            btn.setAttribute('aria-label','Play background music');
+                            btn.style.position = 'fixed';
+                            btn.style.right = '18px';
+                            btn.style.bottom = '18px';
+                            btn.style.zIndex = '9999';
+                            btn.style.padding = '10px 14px';
+                            btn.style.borderRadius = '999px';
+                            btn.style.background = '#111';
+                            btn.style.color = '#fff';
+                            btn.style.border = 'none';
+                            btn.style.boxShadow = '0 6px 18px rgba(0,0,0,0.2)';
+                            btn.style.cursor = 'pointer';
+                            btn.addEventListener('click', () => {
+                                bgAudio.play();
+                                btn.remove();
+                            }, { once: true });
+                            document.body.appendChild(btn);
+                        }
+                    });
+                }
+            });
+        })();
+
         // Mobile detection and warning
         const mobileWarning = document.getElementById('mobileWarning');
 
