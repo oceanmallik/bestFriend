@@ -102,6 +102,8 @@ body::after {
     background: linear-gradient(120deg, rgba(255, 255, 255, 0.04), transparent 30%, rgba(255, 255, 255, 0.02));
     mix-blend-mode: screen;
     opacity: 0.45;
+    background-size: 200% 200%;
+    animation: page-sheen 24s linear infinite;
 }
 
 a {
@@ -360,6 +362,20 @@ main {
     border-radius: 28px;
     box-shadow: var(--shadow);
     backdrop-filter: blur(24px);
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+.glass::after {
+    content: "";
+    position: absolute;
+    inset: -30% -20%;
+    background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.18) 50%, transparent 62%);
+    opacity: 0.2;
+    transform: translateX(-35%) rotate(8deg);
+    animation: glass-sheen 11s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .hero__card {
@@ -411,6 +427,12 @@ main {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 500ms ease, filter 500ms ease;
+}
+
+.hero__featured:hover img {
+    transform: scale(1.05);
+    filter: saturate(1.05) contrast(1.02);
 }
 
 @keyframes float-glow {
@@ -2001,13 +2023,15 @@ main {
 
 .reveal {
     opacity: 0;
-    transform: translateY(28px) scale(0.985);
-    transition: opacity 800ms ease, transform 800ms ease;
+    transform: translateY(28px) scale(0.965);
+    filter: blur(12px) saturate(0.88);
+    transition: opacity 800ms ease, transform 800ms ease, filter 900ms ease;
 }
 
 .reveal.is-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
+    filter: blur(0) saturate(1);
 }
 
 @keyframes drift {
@@ -2016,6 +2040,39 @@ main {
     }
     100% {
         transform: translate3d(2%, 2%, 0) scale(1.06);
+    }
+}
+
+@keyframes page-sheen {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes glass-sheen {
+    0% {
+        transform: translateX(-38%) rotate(8deg);
+        opacity: 0;
+    }
+    18% {
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateX(28%) rotate(8deg);
+        opacity: 0.34;
+    }
+    82% {
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateX(64%) rotate(8deg);
+        opacity: 0;
     }
 }
 
