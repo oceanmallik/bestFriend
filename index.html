@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Mobile Warning -->
+    <div class="mobile-warning" id="mobileWarning">
+        <div class="mobile-warning__content">
+            <h2>Mobile View Not Supported</h2>
+            <p>This experience is designed for desktop viewing. For the best visual and interactive experience, please visit this site on a desktop or tablet device.</p>
+        </div>
+    </div>
+
     <div class="backdrop" aria-hidden="true"></div>
     <div class="backdrop backdrop--alt" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
@@ -363,6 +371,37 @@
     </main>
 
     <script>
+        // Mobile detection and warning
+        const mobileWarning = document.getElementById('mobileWarning');
+
+        function isMobileView() {
+            return window.innerWidth < 1024;
+        }
+
+        function showMobileWarning() {
+            if (isMobileView()) {
+                mobileWarning.classList.add('is-visible');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function hideMobileWarning() {
+            mobileWarning.classList.remove('is-visible');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Show warning on load if mobile
+        showMobileWarning();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (isMobileView()) {
+                showMobileWarning();
+            } else {
+                hideMobileWarning();
+            }
+        });
+
         const cursorDot = document.querySelector('.cursor--dot');
         const cursorRing = document.querySelector('.cursor--ring');
         const interactive = window.matchMedia('(pointer: fine)').matches;
