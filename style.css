@@ -853,6 +853,13 @@ main {
     padding-left: 0;
 }
 
+.chaos-card--voice .chaos-list {
+    list-style: none;
+    display: grid;
+    gap: 0.45rem;
+    padding-left: 0;
+}
+
 /* Meme showcase — cinematic, chaotic collage */
 .meme-showcase {
     position: relative;
@@ -1046,7 +1053,18 @@ main {
     gap: 0.5rem;
 }
 
+.chaos-card--voice .chaos-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .chaos-card--receipt li::before {
+    content: "•";
+    color: var(--pink);
+}
+
+.chaos-card--voice .chaos-list li::before {
     content: "•";
     color: var(--pink);
 }
@@ -1187,6 +1205,13 @@ main {
     display: block;
     object-fit: cover;
     border-radius: inherit;
+}
+
+/* Fix: make any amina.png display fully (portrait/odd-aspect) without crop */
+.memory-card__media img[src$="amina.png"] {
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
 }
 
 .memory-card--hello .memory-card__media img {
