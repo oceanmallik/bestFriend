@@ -1750,10 +1750,12 @@ main {
 .gratitude__stack {
     position: relative;
     z-index: 1;
-    width: min(100%, 64rem);
+    width: min(100%, 110rem);
     display: grid;
-    justify-items: center;
-    gap: 1rem;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    align-items: stretch;
+    justify-items: stretch;
+    gap: 1.25rem;
 }
 
 .gratitude__quote,
@@ -1764,7 +1766,7 @@ main {
 
 .gratitude__quote,
 .gratitude__note {
-    width: min(100%, 52rem);
+    width: 100%;
     min-height: auto;
     display: grid;
     align-content: center;
@@ -1775,7 +1777,7 @@ main {
 }
 
 .gratitude__quote {
-    padding: clamp(2rem, 5vw, 3.5rem) clamp(1.4rem, 4vw, 3rem);
+    padding: clamp(1.9rem, 4.5vw, 3.25rem) clamp(1.4rem, 4vw, 2.8rem);
     animation: float 14s ease-in-out infinite;
 }
 
@@ -1790,9 +1792,8 @@ main {
 }
 
 .gratitude__note {
-    max-width: 42rem;
-    margin-top: -0.5rem;
-    transform: translateX(1.5rem) rotate(-2deg);
+    margin-top: 0;
+    transform: rotate(-1.5deg);
     animation: float 18s ease-in-out infinite alternate-reverse;
     backdrop-filter: blur(28px);
 }
@@ -2252,6 +2253,7 @@ main {
 
     .gratitude__stack {
         width: 100%;
+        grid-template-columns: 1fr;
     }
 
     .gratitude__quote,
