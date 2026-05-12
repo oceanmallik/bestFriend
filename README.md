@@ -8,7 +8,7 @@ A nostalgic letter in motion celebrating a friendship that began in high school 
 
 We met in 2022 and somehow the world made room for a sister disguised as a best friend. This is the memory lane of our friendship, documented in cinematic detail.
 
-![Nimu](bestFriend.jpg)
+![Two Best Friends](/itsUs/twoBestFriends.jpg)
 
 ## The Feeling
 
