@@ -421,7 +421,6 @@ main {
 }
 
 .section-heading {
-    max-width: 52rem;
     display: grid;
     gap: 1rem;
     margin-bottom: clamp(1.6rem, 4vw, 2.6rem);
