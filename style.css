@@ -435,21 +435,6 @@ main {
     filter: saturate(1.05) contrast(1.02);
 }
 
-@keyframes float-glow {
-    0% {
-        opacity: 0.6;
-        filter: blur(28px) brightness(1);
-    }
-    50% {
-        opacity: 0.85;
-        filter: blur(32px) brightness(1.15);
-    }
-    100% {
-        opacity: 0.6;
-        filter: blur(28px) brightness(1);
-    }
-}
-
 @keyframes glow-pulse {
     0% {
         box-shadow: 0 0 30px rgba(109, 231, 255, 0.3), 0 0 60px rgba(100, 200, 255, 0.2), inset 0 0 20px rgba(109, 231, 255, 0.1);
@@ -1670,19 +1655,13 @@ main {
 }
 
 .chaos-card--sticky h3,
-.chaos-card--photo h3,
 .chaos-card--mini h3 {
     font-size: clamp(1.2rem, 2.5vw, 1.7rem);
 }
 
 .chaos-card--sticky p,
-.chaos-card--photo p,
 .chaos-card--mini p {
     font-size: 0.98rem;
-}
-
-.chaos-card--accent {
-    width: min(100%, 24.5rem);
 }
 
 .chaos-tags {
@@ -1945,21 +1924,6 @@ main {
     margin-inline: auto;
 }
 
-.button--glow {
-    box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 16px 40px rgba(143, 123, 255, 0.28),
-        0 0 34px rgba(109, 231, 255, 0.18);
-}
-
-.button--glow:hover,
-.button--glow:focus-visible {
-    box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.12),
-        0 20px 44px rgba(143, 123, 255, 0.34),
-        0 0 46px rgba(109, 231, 255, 0.24);
-}
-
 .cursor {
     position: fixed;
     top: 0;
@@ -2171,8 +2135,7 @@ main {
     }
 
     .memory-card,
-    .chaos-card,
-    .chaos-card--accent {
+    .chaos-card {
         grid-column: span 12;
     }
 
