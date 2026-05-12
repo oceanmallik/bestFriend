@@ -2362,6 +2362,10 @@ main {
     animation: gentle-fade-in 850ms ease both;
 }
 
+.farewell__frame.is-visible {
+    animation: gentle-fade-in 850ms ease both;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
