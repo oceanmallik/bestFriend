@@ -1253,7 +1253,6 @@ main {
 }
 
 .memory-card--hello .memory-card__media {
-    aspect-ratio: 16 / 9;
     min-height: 0;
     background: rgba(255, 255, 255, 0.9);
 }
