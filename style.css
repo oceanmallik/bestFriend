@@ -1894,15 +1894,17 @@ main {
 .farewell__scene {
     position: relative;
     z-index: 1;
-    width: min(100%, 58rem);
+    width: min(100%, 76rem);
     display: grid;
-    place-items: center;
+    grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.9fr);
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
     transform: translate3d(0, calc(var(--farewell-shift, 0px) * -0.18), 0);
     transition: transform 120ms linear;
 }
 
 .farewell__frame {
-    width: min(100%, 46rem);
+    width: 100%;
     text-align: center;
     display: grid;
     gap: 1rem;
@@ -1932,6 +1934,31 @@ main {
 .farewell__frame p {
     max-width: 38rem;
     margin-inline: auto;
+}
+
+.farewell__photo {
+    width: 100%;
+    max-width: 25rem;
+    justify-self: end;
+    display: grid;
+    gap: 0.75rem;
+    padding: 0.7rem;
+    border-radius: 26px;
+}
+
+.farewell__photo img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+}
+
+.farewell__photo figcaption {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
 }
 
 .cursor {
@@ -2245,7 +2272,14 @@ main {
 
     .farewell__scene {
         width: 100%;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 1rem;
         transform: none;
+    }
+
+    .farewell__photo {
+        justify-self: center;
     }
 
     .farewell__moon {
@@ -2328,6 +2362,10 @@ main {
 
     .farewell__frame {
         padding: 1.4rem;
+    }
+
+    .farewell__photo {
+        max-width: min(100%, 22rem);
     }
 
     .gallery__grid {
