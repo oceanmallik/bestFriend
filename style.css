@@ -800,6 +800,98 @@ main {
     border-top-left-radius: 8px;
 }
 
+/* Play music button styles — glassy design */
+.play-music-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    min-height: 44px;
+    border-radius: 16px;
+    color: var(--text);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px) saturate(1.08);
+    box-shadow: 0 10px 30px rgba(4,6,14,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 200ms ease, box-shadow 200ms ease, opacity 160ms ease;
+    transform-origin: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.play-music-btn:hover,
+.play-music-btn:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 54px rgba(6,8,18,0.6);
+}
+
+.play-music-btn:focus-visible {
+    outline: 2px solid rgba(143,123,255,0.18);
+    outline-offset: 4px;
+}
+
+.play-music-btn .pm-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(143,123,255,0.98), rgba(109,231,255,0.9));
+    color: #fff;
+    padding: 6px;
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.play-music-btn .pm-label {
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
+}
+
+.play-music-btn::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 6px;
+    height: 36%;
+    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.play-music-btn::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 18px;
+    background: radial-gradient(circle at 30% 30%, rgba(143,123,255,0.06), transparent 40%);
+    filter: blur(8px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* subtle icon glow */
+@keyframes icon-glow {
+    0% { box-shadow: 0 6px 18px rgba(143,123,255,0.16); }
+    50% { box-shadow: 0 12px 30px rgba(143,123,255,0.22); }
+    100% { box-shadow: 0 6px 18px rgba(143,123,255,0.16); }
+}
+
+.play-music-btn .pm-icon { animation: icon-glow 3.8s ease-in-out infinite; }
+
+@media (max-width: 520px) {
+    .play-music-btn { right: 12px; bottom: 12px; padding: 8px 10px; }
+    .play-music-btn .pm-label { display: none; }
+}
+
 .chaos-card__bubble--right {
     border-top-right-radius: 8px;
 }

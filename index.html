@@ -397,26 +397,25 @@
                 const playPromise = bgAudio.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(() => {
-                        // Autoplay blocked: show a lightweight play button
+                        // Autoplay blocked: show a styled play button
                         if (!document.getElementById('playMusicBtn')) {
                             const btn = document.createElement('button');
                             btn.id = 'playMusicBtn';
-                            btn.textContent = 'Play Music';
+                            btn.className = 'play-music-btn';
                             btn.setAttribute('aria-label','Play background music');
-                            btn.style.position = 'fixed';
-                            btn.style.right = '18px';
-                            btn.style.bottom = '18px';
-                            btn.style.zIndex = '9999';
-                            btn.style.padding = '10px 14px';
-                            btn.style.borderRadius = '999px';
-                            btn.style.background = '#111';
-                            btn.style.color = '#fff';
-                            btn.style.border = 'none';
-                            btn.style.boxShadow = '0 6px 18px rgba(0,0,0,0.2)';
-                            btn.style.cursor = 'pointer';
+                            btn.innerHTML = `
+                                <span class="pm-icon" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 3v18l15-9L5 3z" fill="currentColor"/>
+                                    </svg>
+                                </span>
+                                <span class="pm-label">play music</span>
+                            `;
                             btn.addEventListener('click', () => {
                                 bgAudio.play();
-                                btn.remove();
+                                btn.classList.add('is-playing');
+                                // keep button briefly for feedback then remove
+                                setTimeout(() => btn.remove(), 420);
                             }, { once: true });
                             document.body.appendChild(btn);
                         }
