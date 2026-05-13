@@ -715,7 +715,7 @@ main {
 }
 
 .chaos-card--left {
-    top: 4rem;
+    top: 1.5rem;
     right: 1.5rem;
     transform: rotate(6deg);
 }
@@ -752,7 +752,7 @@ main {
 }
 
 .chaos-card--voice {
-    top: 18rem;
+    top: 21rem;
     left: 66%;
     transform: rotate(-4deg);
     width: min(100%, 16rem);
