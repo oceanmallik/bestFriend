@@ -18,11 +18,6 @@
     </div>
 
     <div class="backdrop" aria-hidden="true"></div>
-    <div class="backdrop backdrop--alt" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
-
-    <div class="cursor cursor--dot" aria-hidden="true"></div>
-    <div class="cursor cursor--ring" aria-hidden="true"></div>
 
     <header class="topbar">
         <div class="topbar__brand">
@@ -75,7 +70,6 @@
             </aside>
 
             <a class="hero__scroll" href="#timeline" aria-label="Scroll to memories">
-                <span class="hero__scroll-text">Scroll Down to enjoy the contents</span>
                 <span class="hero__scroll-line" aria-hidden="true"></span>
             </a>
         </section>
@@ -454,39 +448,6 @@
                 hideMobileWarning();
             }
         });
-
-        const cursorDot = document.querySelector('.cursor--dot');
-        const cursorRing = document.querySelector('.cursor--ring');
-        const interactive = window.matchMedia('(pointer: fine)').matches;
-
-        if (interactive) {
-            document.documentElement.classList.add('has-custom-cursor');
-
-            let x = window.innerWidth / 2;
-            let y = window.innerHeight / 2;
-            let ringX = x;
-            let ringY = y;
-
-            cursorDot.style.transform = `translate(${x}px, ${y}px)`;
-            cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
-
-            const moveCursor = (event) => {
-                x = event.clientX;
-                y = event.clientY;
-                cursorDot.style.transform = `translate(${x}px, ${y}px)`;
-            };
-
-            window.addEventListener('mousemove', moveCursor, { passive: true });
-
-            const animateRing = () => {
-                ringX += (x - ringX) * 0.16;
-                ringY += (y - ringY) * 0.16;
-                cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
-                requestAnimationFrame(animateRing);
-            };
-
-            animateRing();
-        }
 
         const revealItems = document.querySelectorAll('[data-reveal]');
         const observer = new IntersectionObserver((entries) => {

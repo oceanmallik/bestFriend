@@ -24,6 +24,7 @@ html {
     scroll-behavior: smooth;
     background: var(--bg);
     scroll-padding-top: 6rem;
+    zoom: 0.9;
 }
 
 body {
@@ -406,8 +407,8 @@ main {
 
 .hero__featured {
     position: absolute;
-    top: 28%;
-    left: 50%;
+    top: 25%;
+    left: 45%;
     transform: translate(-50%, -50%) rotate(3deg);
     width: clamp(200px, 28vw, 320px);
     aspect-ratio: 3 / 4;
@@ -752,7 +753,7 @@ main {
 
 .chaos-card--voice {
     top: 18rem;
-    left: 63%;
+    left: 66%;
     transform: rotate(-4deg);
     width: min(100%, 16rem);
     background:
@@ -1367,6 +1368,14 @@ main {
 .memory-card--hello .memory-card__media img {
     object-fit: contain;
     background: rgba(255, 255, 255, 0.9);
+}
+
+/* Apply same display settings for Quiet Support and Rage Bait */
+.memory-card__media img[src$="quiteSupport.png"],
+.memory-card__media img[src$="jokesAbout.png"] {
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
 }
 
 .memory-card__body {
@@ -2054,36 +2063,6 @@ main {
     letter-spacing: 0.04em;
 }
 
-.cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 50;
-    opacity: 0;
-    transition: opacity 180ms ease;
-}
-
-.has-custom-cursor .cursor {
-    opacity: 1;
-}
-
-.cursor--dot {
-    width: 10px;
-    height: 10px;
-    background: linear-gradient(135deg, var(--pink), var(--cyan));
-    box-shadow: 0 0 18px rgba(255, 122, 168, 0.9), 0 0 40px rgba(109, 231, 255, 0.28);
-}
-
-.cursor--ring {
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 30px rgba(143, 123, 255, 0.2);
-}
-
 .hero__scroll {
     position: absolute;
     left: 50%;
@@ -2093,10 +2072,6 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 0.65rem;
-    color: rgba(229, 234, 255, 0.74);
-    text-transform: uppercase;
-    letter-spacing: 0.24em;
-    font-size: 0.72rem;
 }
 
 .hero__scroll-line {
@@ -2413,14 +2388,6 @@ main {
 
     .button {
         width: 100%;
-    }
-
-    .cursor {
-        display: none;
-    }
-
-    .hero__scroll {
-        bottom: 0.85rem;
     }
 
     .memory-card {
