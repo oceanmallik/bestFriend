@@ -284,7 +284,7 @@ main {
 .hero__content {
     display: grid;
     gap: 1.25rem;
-    max-width: 46rem;
+    max-width: 50rem;
 }
 
 .hero h1,
@@ -301,7 +301,7 @@ main {
 
 .hero h1 {
     font-size: clamp(3rem, 4.3vw, 6.4rem);
-    max-width: 18ch;
+    max-width: 20ch;
 }
 
 .lede,
@@ -339,7 +339,7 @@ main {
 }
 
 .button--primary {
-    background: linear-gradient(135deg, rgba(255, 122, 168, 0.95), rgba(143, 123, 255, 0.95));
+    background: linear-gradient(135deg, rgba(143, 123, 255, 0.95), rgba(143, 123, 255, 0.95));
     box-shadow: 0 16px 40px rgba(143, 123, 255, 0.28);
     color: #fff;
 }
@@ -382,7 +382,7 @@ main {
     align-self: center;
     justify-self: end;
     padding: clamp(1.3rem, 3vw, 2rem);
-    max-width: 26rem;
+    max-width: 27rem;
     display: grid;
     gap: 1rem;
 }
