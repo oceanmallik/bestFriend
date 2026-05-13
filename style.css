@@ -683,7 +683,7 @@ main {
 
 .chaos-card--sticky,
 .chaos-card--mini {
-    width: min(100%, 18rem);
+    width: min(100%, 22rem);
 }
 
 .chaos-card--note {
