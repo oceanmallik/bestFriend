@@ -36,3 +36,5 @@ What makes this bond unique is the comfort in shared humor, the inside jokes tha
 ---
 
 *"The camera caught the exact moment the bit became a lifestyle."* 🚍✨
+
+There is also a easter egg on DIU Notes app made by me. 
